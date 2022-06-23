@@ -6,7 +6,6 @@ app.use(morgan("dev"));
 app.use(express.static(__dirname + "/public"));
 
 const views = require("./views");
-
 const { db } = require("./models");
 
 app.use(express.urlencoded({ extended: false }));
