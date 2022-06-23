@@ -6,16 +6,20 @@ app.use(morgan("dev"));
 app.use(express.static(__dirname + "/public"));
 
 const views = require("./views");
-const { db, Page, User } = require("./models");
+const { db } = require("./models");
+
+const wikiRouter = require("./routes/wiki");
 
 app.use(express.urlencoded({ extended: false }));
+
+app.use("/wiki", wikiRouter);
 
 app.get("/", (req, res) => {
   res.send(views.main("hello world"));
 });
 
 db.authenticate().then(() => {
-  console.log("connected to the database");
+  console.log("💻 connected to the database");
 });
 
 const PORT = 3000;
