@@ -9,10 +9,10 @@ const Page = db.define("page", {
     type: Sequelize.STRING,
   },
   content: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
   },
   status: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.ENUM("open", "closed"),
   },
 });
 
