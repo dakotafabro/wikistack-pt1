@@ -21,6 +21,12 @@ const Page = db.define("page", {
   },
 });
 
+Page.hooks = {
+  generateSlug(title) {
+    return Array.from(title.split(" ")).join("_");
+  },
+};
+
 const User = db.define("user", {
   name: {
     type: Sequelize.STRING,
